@@ -6,7 +6,7 @@ DB = PG.connect({:dbname => 'volunteer_tracker'})
 class Volunteer
 
   def self.add(name)
-    DB.exec("INSERT INTO volunteers VALUES (uuid_generate_v4(), '#{name.downcase}') RETURNING id;")
+    DB.exec("INSERT INTO volunteers VALUES (uuid_generate_v4(), '#{name.downcase}') RETURNING id;")unless Volunteer.find_by_name('name').any?
   end
 
   def self.find_by_name(name)
@@ -26,7 +26,7 @@ end
 class Project
 
   def self.add(name, description)
-    DB.exec("INSERT INTO projects VALUES (uuid_generate_v4(), '#{name.downcase}', '#{description.downcase}') RETURNING id;")
+    DB.exec("INSERT INTO projects VALUES (uuid_generate_v4(), '#{name.downcase}', '#{description.downcase}') RETURNING id;") unless Project.find_by_name('name').any?
   end
 
   def self.find_by_id(id)

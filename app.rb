@@ -17,10 +17,18 @@ post('/add-project') do
   erb(:index)
 end
 
+post('/projects') do
+  erb(:projects_all)
+end
+
 post('/add-volunteer') do
   first_name = params['first-name']
   last_name = params['last-name']
   volunteer_name = first_name + ' ' + last_name
   Volunteer.add(volunteer_name)
   erb(:index)
+end
+
+post('/volunteers') do
+  erb(:volunteers_all)
 end

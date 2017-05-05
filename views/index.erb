@@ -1,4 +1,17 @@
 <div class="col-md-12">
+  <div class="col-md-6">
+    <form action="/projects" method="post">
+    <button class="btn btn-primary MEGA" type="submit" name="button">Projects</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <form action="/volunteers" method="post">
+    <button class="btn btn-success MEGA" type="submit" name="button">Volunteers</button>
+    </form>
+  </div>
+  <br>
+  <hr>
+  <br>
   <form action="/add-project" method="post">
     <h2>Create a New Project</h2>
     <div class="col-md-6">
@@ -16,6 +29,8 @@
     <br>
     <button action="/" class="btn btn-info">Create Project</button>
   </form>
+  <br>
+  <hr>
   <br>
   <h2>Create a new Volunteer</h2>
   <form action="/add-volunteer" method="post">

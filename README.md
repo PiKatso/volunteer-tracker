@@ -4,7 +4,7 @@ This application allows a user to track projects and the volunteers working on t
 
 ### Installing
 
-Installation is quick and easy! First you can open this link <!--HEROKU LINK HERE--> to see the webpage in action live online. Or you can clone this repository to your machine, navigate to the file path in your terminal, and run 'app.rb' by typing '$ruby app.rb'. If you chose to clone the repository, after you run 'app.rb' you will need to copy the localhost path into your web browswer. The standard localhost for Sinatra is port 4567
+Installation is quick and easy! You can clone this repository to your machine, navigate to the file path in your terminal, and run 'app.rb' by typing '$ruby app.rb'. If you chose to clone the repository, after you run 'app.rb' you will need to copy the localhost path into your web browser. The standard localhost for Sinatra is port 4567
 
 ###Data Base Setup
 
@@ -15,6 +15,7 @@ In PSQL:
 CREATE DATABASE volunteer_tracker;
 CREATE TABLE volunteers (id uuid PRIMARY KEY, name VARCHAR);
 CREATE TABLE projects (id uuid PRIMARY KEY, name VARCHAR, description VARCHAR);
+CREATE TABLE assignments (id uuid PRIMARY KEY, project_id uuid, volunteer_id uuid);
 
 ## Built With
 
@@ -34,6 +35,7 @@ CREATE TABLE projects (id uuid PRIMARY KEY, name VARCHAR, description VARCHAR);
 | Web App accepts text | input: 'becky'  | output: 'becky'  |
 | Web App accepts text, no symbols or numbers | input: 'becky!'  | output: "please enter a valid name"  |
 | Web takes input to create/add new volunteers | input: 'becky'  | output: 'becky'  |
+| Web checks input for duplicate before creating/adding new volunteers | input: 'becky'  | output: ''  |
 | Web takes input to create/add new projects | input: 'habitat for humanity'  | output: 'habitat for humanity' |
 | web app connects to databases to store info | input: volunteer 'Becky'  | output: volunteer_id, 'Becky' |
 | web allows users to update volunteers | input: edit 'becky' | output: volunteer_id, 'barbra' |

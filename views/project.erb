@@ -14,7 +14,13 @@
   <br>
   <h1><%= @project[0]['name'] %></h1>
   <h2><%= @project[0]['description']%></h2>
-  
+  <br>
+
+  <form action="/project/delete/<%= @project[0]['id']%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button class="btn btn-danger" type="submit">Delete Project</button>
+  </form>
+
   <br>
   <a href="/" class="btn btn-info">Home</a>
 </div>

@@ -22,10 +22,15 @@ post('/projects') do
 end
 
 get('/project/:id') do
-
   id = params['id']
   @project = Project.find_by_id(id)
   erb(:project)
+end
+
+get('/project/delete/:id') do
+  id = params['id']
+  @project = Project.find_by_id(id)
+  erb(:projects_all)
 end
 
 post('/add-volunteer') do

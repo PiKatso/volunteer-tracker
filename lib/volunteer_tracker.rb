@@ -43,6 +43,6 @@ class Project
 
 end
 
-# class Assignment
-#
-# end
+class Assignment
+
+end

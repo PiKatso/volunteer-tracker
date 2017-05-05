@@ -33,7 +33,7 @@ describe 'Project' do
 
   describe '#add' do
     it "adds a new project to the projects table in database" do
-      expect(Project.add("habitat for humanity", 'repairing a home')[0]['id']).to match(UUID_MATCHER)
+      expect(Project.add("Oregon food Bank", 'organizing food')[0]['id']).to match(UUID_MATCHER)
     end
   end
 
@@ -62,5 +62,6 @@ describe 'Project' do
   #   expect(Project.delete(id)).to eq('')
   #   end
   # end
+  #can'd get spec to pass because, I don't know what to tell it to expect- would love feed back on how to write this as a passing spec.
 
 end

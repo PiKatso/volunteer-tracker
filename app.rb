@@ -10,8 +10,8 @@ get('/') do
 end
 
 post('/add-project') do
-  project_name = params['project-name']
-  project_description = params['project-description']
+  project_name = params['project-name'].downcase
+  project_description = params['project-description'].downcase
   #need to clean string/check valid input still
   Project.add(project_name, project_description)
   erb(:index)
@@ -42,7 +42,7 @@ end
 post('/add-volunteer') do
   first_name = params['first-name']
   last_name = params['last-name']
-  volunteer_name = first_name + ' ' + last_name
+  volunteer_name = (first_name + ' ' + last_name).downcase
   Volunteer.add(volunteer_name)
   erb(:index)
 end

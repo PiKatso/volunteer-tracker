@@ -17,6 +17,10 @@ class Volunteer
     DB.exec("SELECT * FROM volunteers WHERE id = '#{id}';")
   end
 
+  def self.all
+    DB.exec("SELECT * FROM volunteers;")
+  end
+
 end
 
 class Project

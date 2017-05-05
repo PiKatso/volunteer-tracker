@@ -21,6 +21,12 @@ describe 'Volunteer' do
     end
   end
 
+  describe '#all' do
+    it "finds all volunteers in database" do
+    expect(Volunteer.all()[0]["name"]).to eq('becky')
+    end
+  end
+
 end
 
 describe 'Project' do

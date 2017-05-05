@@ -1,10 +1,16 @@
 <div class="col-md-12">
   <form action="/add-project" method="post">
-    <div class="col-md-12">
-      <h2>Create a New Project</h2>
+    <h2>Create a New Project</h2>
+    <div class="col-md-6">
       <div class="form-group">
         <label for="project-name">Enter Project Name:</label>
         <input name="project-name" class="form-control" type="text" required>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="project-description">Enter Project Description:</label>
+        <input name="project-description" class="form-control" type="text" required>
       </div>
     </div>
     <br>
@@ -12,7 +18,7 @@
   </form>
   <br>
   <h2>Create a new Volunteer</h2>
-  <form action="/add-author" method="post">
+  <form action="/add-volunteer" method="post">
       <div class="col-md-6">
         <div class="form-group">
           <label for="first-name">Enter First Name:</label>

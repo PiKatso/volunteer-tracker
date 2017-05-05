@@ -33,6 +33,12 @@ get('/project/delete/:id') do
   erb(:projects_all)
 end
 
+delete('/project/delete/:id') do
+  id = params['id']
+  Project.delete(id)
+  erb(:projects_all)
+end
+
 post('/add-volunteer') do
   first_name = params['first-name']
   last_name = params['last-name']

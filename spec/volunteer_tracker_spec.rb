@@ -56,4 +56,11 @@ describe 'Project' do
     end
   end
 
+  # describe '#delete' do
+  #   it "delets project in database from id" do
+  #     id = Project.find_by_name('habitat for humanity')[0]["id"]
+  #   expect(Project.delete(id)).to eq('')
+  #   end
+  # end
+
 end

@@ -41,8 +41,12 @@ class Project
     DB.exec("SELECT * FROM projects;")
   end
 
+  def self.delete(id)
+    DB.exec("DELETE FROM projects WHERE id = '#{id}';")
+  end
+
 end
 
-class Assignment
-
-end
+# class Assignment
+#
+# end

@@ -6,7 +6,11 @@ DB = PG.connect({:dbname => 'volunteer_tracker'})
 class Volunteer
 
   def self.add(name)
-    DB.exec("INSERT INTO volunteers VALUES (uuid_generate_v4(), '#{name.downcase}') RETURNING id;") unless Volunteer.find_by_name('name').any?
+    if Volunteer.find_by_name(name).any?
+      id = Volunteer.find_by_name(name)[0]['id']
+    else
+    DB.exec("INSERT INTO volunteers VALUES (uuid_generate_v4(), '#{name.downcase}') RETURNING id;")
+    end
   end
 
   def self.find_by_name(name)

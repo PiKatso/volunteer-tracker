@@ -1,9 +1,12 @@
-# example ruby code
+require 'pg'
+require 'pry'
 
-# class Palindrome
+DB = PG.connect({:dbname => 'volunteer_tracker'})
 
-#   def is_word?(user_input)
-#     user_input.match?(/[aeiouy]+/i)
-#   end
+class Volunteer
 
-# end
+  def self.add(name)
+    DB.exec("INSERT INTO volunteers VALUES (uuid_generate_v4(), '#{name.downcase}') RETURNING id;") 
+  end
+
+end

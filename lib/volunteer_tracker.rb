@@ -29,4 +29,8 @@ class Project
     DB.exec("INSERT INTO projects VALUES (uuid_generate_v4(), '#{name.downcase}', '#{description.downcase}') RETURNING id;")
   end
 
+  def self.all
+    DB.exec("SELECT * FROM projects;")
+  end
+
 end

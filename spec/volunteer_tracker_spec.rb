@@ -36,4 +36,11 @@ describe 'Project' do
       expect(Project.add("habitat for humanity", 'repairing a home')[0]['id']).to match(UUID_MATCHER)
     end
   end
+
+  describe '#all' do
+    it "finds all projects in database" do
+    expect(Project.all()[0]["name"]).to eq('habitat for humanity')
+    end
+  end
+
 end

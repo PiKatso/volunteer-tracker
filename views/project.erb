@@ -12,11 +12,9 @@
   <br>
   <hr>
   <br>
-  <div id="volunteers_list">
-    <h2>All Volunteers:</h2>
-    <% Volunteer.all.to_a.each do |volunteer| %>
-      <%= volunteer['name'] %><br>
-    <% end %>
-    <br>
+  <h1><%= @project[0]['name'] %></h1>
+  <h2><%= @project[0]['description']%></h2>
+  
+  <br>
   <a href="/" class="btn btn-info">Home</a>
 </div>

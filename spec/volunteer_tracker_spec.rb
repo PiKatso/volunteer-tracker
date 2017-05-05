@@ -37,6 +37,19 @@ describe 'Project' do
     end
   end
 
+  describe '#find_by_name' do
+    it "finds the project id by project name" do
+    expect(Project.find_by_name('habitat for humanity')[0]["id"]).to match(UUID_MATCHER)
+    end
+  end
+
+  # describe '#find_by_id' do
+  #   it "finds the project name by Project id" do
+  #     id = Project.find_by_name('becky')[0]["id"]
+  #   expect(Project.find_by_id(id)[0]["name"]).to eq('habitat for humanity')
+  #   end
+  # end
+
   describe '#all' do
     it "finds all projects in database" do
     expect(Project.all()[0]["name"]).to eq('habitat for humanity')

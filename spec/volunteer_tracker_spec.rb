@@ -8,6 +8,12 @@ describe 'Volunteer' do
     end
   end
 
+  describe '#find_by_name' do
+    it "finds the volunteer id by volunteer name" do
+    expect(Volunteer.find_by_name('becky')[0]["id"]).to match(UUID_MATCHER)
+    end
+  end
+
 end
 
 describe 'Project' do

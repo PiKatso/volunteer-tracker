@@ -13,6 +13,10 @@ class Volunteer
     DB.exec("SELECT * FROM volunteers WHERE name = '#{name.downcase}';")
   end
 
+  def self.find_by_id(id)
+    DB.exec("SELECT * FROM volunteers WHERE id = '#{id}';")
+  end
+
 end
 
 class Project

@@ -14,6 +14,13 @@ describe 'Volunteer' do
     end
   end
 
+  describe '#find_by_id' do
+    it "finds the volunteer name by volunteer id" do
+      id = Volunteer.find_by_name('becky')[0]["id"]
+    expect(Volunteer.find_by_id(id)[0]["name"]).to eq('becky')
+    end
+  end
+
 end
 
 describe 'Project' do

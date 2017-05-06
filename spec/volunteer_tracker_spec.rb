@@ -76,4 +76,11 @@ describe Assignment do
     end
   end
 
+  describe '#find_by_volunteer' do
+    it "finds the project name by volunteer id" do
+      volunteer_id = Volunteer.find_by_name('becky')[0]["id"]
+    expect(Assignment.find_by_volunteer(volunteer_id)[0]["id"]).to match(UUID_MATCHER)
+    end
+  end
+
 end

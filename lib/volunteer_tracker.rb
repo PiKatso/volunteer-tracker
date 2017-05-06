@@ -69,4 +69,8 @@ class Assignment
     # end
   end
 
+  def self.find_by_volunteer(value)
+    DB.exec("SELECT * FROM assignments WHERE volunteer_id = '#{value}';")
+  end
+
 end

@@ -12,6 +12,9 @@ RSpec.configure do |config|
     DB.exec("DELETE FROM assignments *;")
     Project.add('Habitat for Humanity', 'repairing a home')
     Volunteer.add('Becky')
+    project_id =Project.find_by_name('habitat for humanity')[0]["id"]
+    volunteer_id =Volunteer.find_by_name('becky')[0]["id"]
+    Assignment.create(project_id, volunteer_id)
   end
 end
 

@@ -65,3 +65,15 @@ describe 'Project' do
   #can'd get spec to pass because, I don't know what to tell it to expect- would love feed back on how to write this as a passing spec.
 
 end
+
+describe Assignment do
+
+  describe '#create' do
+    it "adds a new connection between project and volunteer" do
+      project_id =Project.find_by_name('habitat for humanity')[0]["id"]
+      volunteer_id =Volunteer.find_by_name('becky')[0]["id"]
+      expect(Assignment.create(project_id, volunteer_id)[0]['id']).to match(UUID_MATCHER)
+    end
+  end
+
+end

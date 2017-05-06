@@ -9,6 +9,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DB.exec("DELETE FROM volunteers *;")
     DB.exec("DELETE FROM projects *;")
+    DB.exec("DELETE FROM assignments *;")
     Project.add('Habitat for Humanity', 'repairing a home')
     Volunteer.add('Becky')
   end

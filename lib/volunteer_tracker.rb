@@ -60,11 +60,13 @@ class Project
 end
 
 class Assignment
-  def self.add(project_id, volunteer_id)
+
+  def self.create(project_id, volunteer_id)
     # if Assignment.find_by_volunteer(volunteer_id).any?
     #   id = Assignment.find_by_volunteer(volunteer_id)[0]['id']
     # else
       DB.exec("INSERT INTO assignments VALUES (uuid_generate_v4(), '#{project_id}', '#{volunteer_id}') RETURNING id;")
-    end
+    # end
   end
+
 end

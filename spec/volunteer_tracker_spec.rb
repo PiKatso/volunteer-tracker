@@ -27,6 +27,21 @@ describe 'Volunteer' do
     end
   end
 
+  # describe '#delete' do
+  #   it "deletes a volunteer" do
+  #   id = Volunteer.find_by_name('becky')[0]["id"]
+  #   expect(Volunteer.delete(id)).to eq('')
+  #   end
+  # end
+
+  describe '#assign_to_project' do
+    it "assigns volunteer to project database" do
+      id = Volunteer.find_by_name('becky')[0]["id"]
+      project_id = Project.find_by_name('habitat for humanity')[0]["id"]
+    expect(Volunteer.assign_to_project(id, project_id).to eq('hi'))
+    end
+  end
+
 end
 
 describe 'Project' do
@@ -66,21 +81,21 @@ describe 'Project' do
 
 end
 
-describe Assignment do
-
-  describe '#create' do
-    it "adds a new connection between project and volunteer" do
-      project_id =Project.find_by_name('habitat for humanity')[0]["id"]
-      volunteer_id =Volunteer.find_by_name('becky')[0]["id"]
-      expect(Assignment.create(project_id, volunteer_id)[0]['id']).to match(UUID_MATCHER)
-    end
-  end
-
-  describe '#find_by_volunteer' do
-    it "finds the project name by volunteer id" do
-      volunteer_id = Volunteer.find_by_name('becky')[0]["id"]
-    expect(Assignment.find_by_volunteer(volunteer_id)[0]["id"]).to match(UUID_MATCHER)
-    end
-  end
-
-end
+# describe Assignment do
+#
+#   describe '#create' do
+#     it "adds a new connection between project and volunteer" do
+#       project_id =Project.find_by_name('habitat for humanity')[0]["id"]
+#       volunteer_id =Volunteer.find_by_name('becky')[0]["id"]
+#       expect(Assignment.create(project_id, volunteer_id)[0]['id']).to match(UUID_MATCHER)
+#     end
+#   end
+#
+#   describe '#find_by_volunteer' do
+#     it "finds the project name by volunteer id" do
+#       volunteer_id = Volunteer.find_by_name('becky')[0]["id"]
+#     expect(Assignment.find_by_volunteer(volunteer_id)[0]["id"]).to match(UUID_MATCHER)
+#     end
+#   end
+#
+# end

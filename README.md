@@ -13,9 +13,9 @@ Set up required project databases:
 In PSQL:
 
 CREATE DATABASE volunteer_tracker;
-CREATE TABLE volunteers (id uuid PRIMARY KEY, name VARCHAR);
+CREATE TABLE volunteers (id uuid PRIMARY KEY, name VARCHAR, project_id uuid);
 CREATE TABLE projects (id uuid PRIMARY KEY, name VARCHAR, description VARCHAR);
-CREATE TABLE assignments (id uuid PRIMARY KEY, project_id uuid, volunteer_id uuid);
+<!-- CREATE TABLE assignments (id uuid PRIMARY KEY, project_id uuid, volunteer_id uuid); -->
 
 ## Built With
 

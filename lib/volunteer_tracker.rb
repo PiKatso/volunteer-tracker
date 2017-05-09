@@ -29,6 +29,10 @@ class Volunteer
     DB.exec("DELETE FROM volunteers WHERE id = '#{id}';")
   end
 
+  def self.assign_to_project(id, project_id)
+    DB.exec("UPDATE volunteers SET project_id = '#{project_id}' WHERE id = '#{id}';")
+  end
+
 end
 
 class Project
@@ -59,18 +63,18 @@ class Project
 
 end
 
-class Assignment
-
-  def self.create(project_id, volunteer_id)
-    # if Assignment.find_by_volunteer(volunteer_id).any?
-    #   id = Assignment.find_by_volunteer(volunteer_id)[0]['id']
-    # else
-      DB.exec("INSERT INTO assignments VALUES (uuid_generate_v4(), '#{project_id}', '#{volunteer_id}') RETURNING id;")
-    # end
-  end
-
-  def self.find_by_volunteer(value)
-    DB.exec("SELECT * FROM assignments WHERE volunteer_id = '#{value}';")
-  end
-
-end
+# class Assignment
+#
+#   def self.create(project_id, volunteer_id)
+#     # if Assignment.find_by_volunteer(volunteer_id).any?
+#     #   id = Assignment.find_by_volunteer(volunteer_id)[0]['id']
+#     # else
+#       DB.exec("INSERT INTO assignments VALUES (uuid_generate_v4(), '#{project_id}', '#{volunteer_id}') RETURNING id;")
+#     # end
+#   end
+#
+#   def self.find_by_volunteer(value)
+#     DB.exec("SELECT * FROM assignments WHERE volunteer_id = '#{value}';")
+#   end
+#
+# end

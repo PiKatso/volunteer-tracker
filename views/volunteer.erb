@@ -14,11 +14,13 @@
   <hr>
   <br>
   <h1><%= @volunteer[0]['name'] %></h1>
-  <!-- <h2><%= @project[0]['description']%></h2> -->
   <br>
   <form action="/volunteers" method="post">
-  <label for="volunteer_assign"></label>
-  <button class="btn btn-success MEGA" type="submit" name="button">Assign Volunteer</button>
+  <label for="volunteer_assign">Assign to Project</label>
+  <p>will be input bar and logic coming here</p>
+  <!-- do drop down, with options each Project. collect id to var project_id in volunteer table. -->
+  <br>
+  <button class="btn btn-success" type="submit" name="button">Assign Volunteer</button>
   </form>
   <br>
   <form action="/volunteer/delete/<%= @volunteer[0]['id']%>" method="post">

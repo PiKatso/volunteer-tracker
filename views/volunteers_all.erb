@@ -15,7 +15,7 @@
   <div id="volunteers_list">
     <h2>All Volunteers:</h2>
     <% Volunteer.all.to_a.each do |volunteer| %>
-      <%= volunteer['name'] %><br>
+      <a href="/volunteer/<%= volunteer['id'] %>"><%= volunteer['name'] %></a><br>
     <% end %>
     <br>
   <a href="/" class="btn btn-info">Home</a>

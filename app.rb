@@ -51,8 +51,20 @@ post('/volunteers') do
   erb(:volunteers_all)
 end
 
-# get('/volunteers/:id') do
-#   id = params['id']
-#   # @volunteers = Volunteer.find_by_id(id)
-#   erb(:volunteer)
-# end
+get('/volunteers/:id') do
+  id = params['id']
+  @volunteers = Volunteer.find_by_id(id)
+  erb(:volunteer)
+end
+
+get('/volunteer/delete/:id') do
+  id = params['id']
+  @volunteer = volunteer.find_by_id(id)
+  erb(:projects_all)
+end
+
+delete('/volunteer/delete/:id') do
+  id = params['id']
+  Volunteer.delete(id)
+  erb(:projects_all)
+end

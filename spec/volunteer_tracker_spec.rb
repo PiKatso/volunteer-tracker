@@ -44,6 +44,15 @@ describe 'Volunteer' do
     end
   end
 
+  describe '#update_name' do
+    it "updates volunteer name" do
+      id = Volunteer.find_by_name('becky')[0]["id"]
+      name = "kat"
+      Volunteer.update_name(id, name)
+    expect(Volunteer.find_by_id(id)[0]['name']).to eq('kat') 
+    end
+  end
+
 end
 
 describe 'Project' do

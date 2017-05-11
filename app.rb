@@ -9,12 +9,16 @@ get('/') do
   erb(:index)
 end
 
+# project routing
 post('/add-project') do
   project_name = params['project-name'].downcase
   project_description = params['project-description'].downcase
-  #need to clean string/check valid input still
   Project.add(project_name, project_description)
   erb(:index)
+end
+
+get('/projects') do
+  erb(:projects_all)
 end
 
 post('/projects') do
@@ -25,6 +29,20 @@ get('/project/:id') do
   id = params['id']
   @project = Project.find_by_id(id)
   erb(:project)
+end
+
+patch '/project/:id/update-description' do
+  id = params['id']
+  new_project_desc = params.fetch("update-project-desc")
+  @project = Project.update_description(id, new_project_desc)
+  redirect '/projects'
+end
+
+patch '/project/:id/update-title' do
+  id = params['id']
+  new_project_title = params.fetch("update-project-title")
+  @project = Project.update_name(id, new_project_title)
+  redirect '/projects'
 end
 
 get('/project/delete/:id') do
@@ -39,6 +57,7 @@ delete('/project/delete/:id') do
   erb(:projects_all)
 end
 
+# beg volunteer routing
 post('/add-volunteer') do
   first_name = params['first-name']
   last_name = params['last-name']

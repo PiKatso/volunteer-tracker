@@ -12,15 +12,43 @@
   <br>
   <hr>
   <br>
-  <h1><%= @project[0]['name'] %></h1>
-  <h2><%= @project[0]['description']%></h2>
-  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <h1><%= @project[0]['name'] %></h1>
+      <h2><%= @project[0]['description']%></h2>
+      <br>
 
-  <form action="/project/delete/<%= @project[0]['id']%>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button class="btn btn-danger" type="submit">Delete Project</button>
-  </form>
+      <form action="/project/delete/<%= @project[0]['id']%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button class="btn btn-danger" type="submit">Delete Project</button>
+      </form>
 
+    </div>
+    <!-- Edit section -->
+    <div class="col-md-6">
+      <!-- update project name -->
+      <form action="/project/<%= @project[0]['id'] %>/update-title" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <label for="update-project-title">Update Project Title</label>
+        <br>
+        <input type="text" name="update-project-title">
+        <br>
+        <br>
+        <button class="btn btn-success" type="submit" name="update-title-button">Update Title</button>
+      </form>
+      <!-- update project description -->
+      <br>
+      <form action="/project/<%= @project[0]['id'] %>/update-description" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <label for="update-project-desc">Update Project Description</label>
+        <br>
+        <input type="text" name="update-project-desc">
+        <br>
+        <br>
+        <button class="btn btn-success" type="submit" name="update-desc-button">Update Title</button>
+      </form>
+    </div>
+  </div>
   <br>
   <a href="/" class="btn btn-info">Home</a>
 </div>

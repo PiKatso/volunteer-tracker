@@ -15,14 +15,15 @@
   <br>
   <h1><%= @volunteer[0]['name'] %></h1>
   <br>
-  <h5><%= @volunteer[0]['project_id'] %></h5>
+  <h5><%= @project[0]['name'] unless @project.nil? %></h5>
 
   <br>
   <label for="volunteer_assign">Assign to Project</label>
   <form action="/volunteer/assign" class="form-group" method="post">
-    <select class="form-control" name="<%= @volunteer[0]['id'] %>">
+    <input type="hidden" name="volunteer[id]" value="<%= @volunteer[0]['id'] %>">
+    <select class="form-control" name="volunteer[project_id]">
     <% Project.all.each do |project| %>
-      <%= "<option value='#{project['id']}'>#{project['name']}</option>"%>
+      <option value="<%= project['id'] %>"><%= project['name']%></option>
     <% end %>
     </select>
     <br>

@@ -53,22 +53,16 @@ end
 
 get('/volunteer/:id') do
   @volunteer = Volunteer.find_by_id(params['id'])
-  erb(:volunteer)
-end
-
-get('/volunteer/assign') do
-  @volunteer = Volunteer.find_by_id(params['id'])
-  project_id = params.fetch("#{project['id']}")
+  @project = Project.find_by_id(@volunteer[0]['project_id'])
   erb(:volunteer)
 end
 
 post '/volunteer/assign' do
-  project_id = params.fetch('value')
-  binding.pry
-  volunteer = Volunteer.find_by_id(volunteer_id)
-  project = Project.find_by_id(project_id)
-  volunteer.assign_volunteer(volunteer_id, project_id)
-  redirect '/volunteer/:id'
+  data = params.fetch('volunteer')
+  project_id = data['project_id']
+  volunteer_id = data['id']
+  Volunteer.assign_volunteer(volunteer_id, project_id)
+  redirect "/volunteer/#{volunteer_id}"
 end
 
 get('/volunteer/delete/:id') do

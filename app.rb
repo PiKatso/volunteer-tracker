@@ -33,14 +33,14 @@ end
 
 patch '/project/:id/update-description' do
   id = params['id']
-  new_project_desc = params.fetch("update-project-desc")
+  new_project_desc = params.fetch("update-project-desc").downcase
   @project = Project.update_description(id, new_project_desc)
   redirect '/projects'
 end
 
 patch '/project/:id/update-title' do
   id = params['id']
-  new_project_title = params.fetch("update-project-title")
+  new_project_title = params.fetch("update-project-title").downcase
   @project = Project.update_name(id, new_project_title)
   redirect '/projects'
 end
@@ -86,7 +86,7 @@ end
 post '/volunteer/assign' do
   data = params.fetch('volunteer')
   project_id = data['project_id']
-  volunteer_id = params.fetch('volunteer_id')
+  volunteer_id = params.fetch('volunteer_id').downcase
   Volunteer.assign_volunteer(volunteer_id, project_id)
   redirect "/volunteer/#{volunteer_id}"
 end
@@ -101,11 +101,11 @@ end
 get('/volunteer/delete/:id') do
   id = params['id']
   @volunteer = volunteer.find_by_id(id)
-  erb(:projects_all)
+  erb(:volunteers_all)
 end
 
 delete('/volunteer/delete/:id') do
   id = params['id']
   Volunteer.delete(id)
-  erb(:projects_all)
+  erb(:volunteers_all)
 end

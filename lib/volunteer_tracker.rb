@@ -29,7 +29,7 @@ class Volunteer
     DB.exec("DELETE FROM volunteers WHERE id = '#{id}';")
   end
 
-  def self.assign_to_project(id, project_id)
+  def self.assign_volunteer(id, project_id)
     DB.exec("UPDATE volunteers SET project_id = '#{project_id}' WHERE id = '#{id}';")
   end
 

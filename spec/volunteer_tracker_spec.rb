@@ -35,11 +35,11 @@ describe 'Volunteer' do
     end
   end
 
-  describe '#assign_to_project' do
+  describe '#assign_volunteer' do
     it "assigns volunteer to project database" do
       id = Volunteer.find_by_name('becky')[0]["id"]
       project_id = Project.find_by_name('habitat for humanity')[0]["id"]
-      Volunteer.assign_to_project(id, project_id)
+      Volunteer.assign_volunteer(id, project_id)
     expect(Volunteer.all[0]['project_id']).to eq project_id
     end
   end

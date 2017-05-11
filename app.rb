@@ -67,7 +67,7 @@ post '/volunteer/assign' do
   binding.pry
   volunteer = Volunteer.find_by_id(volunteer_id)
   project = Project.find_by_id(project_id)
-  volunteer.assign_to_project(volunteer_id, project_id)
+  volunteer.assign_volunteer(volunteer_id, project_id)
   redirect '/volunteer/:id'
 end
 

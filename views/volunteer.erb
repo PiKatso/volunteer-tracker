@@ -15,8 +15,11 @@
   <br>
   <h1><%= @volunteer[0]['name'] %></h1>
   <br>
+  <h5><%= @volunteer[0]['project_id'] %></h5>
+
+  <br>
   <label for="volunteer_assign">Assign to Project</label>
-  <form action="/volunteers" class="form-group" method="post">
+  <form action="/volunteer/assign" class="form-group" method="post">
     <select class="form-control" name="<%= @volunteer[0]['id'] %>">
     <% Project.all.each do |project| %>
       <%= "<option value='#{project['id']}'>#{project['name']}</option>"%>

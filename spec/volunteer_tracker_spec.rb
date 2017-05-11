@@ -27,18 +27,20 @@ describe 'Volunteer' do
     end
   end
 
-  # describe '#delete' do
-  #   it "deletes a volunteer" do
-  #   id = Volunteer.find_by_name('becky')[0]["id"]
-  #   expect(Volunteer.delete(id)).to eq('')
-  #   end
-  # end
+  describe '#delete' do
+    it "deletes a volunteer" do
+    id = Volunteer.find_by_name('Becky')[0]["id"]
+    Volunteer.delete(id)
+    expect(Volunteer.find_by_id(id).any?).to eq(false)
+    end
+  end
 
   describe '#assign_to_project' do
     it "assigns volunteer to project database" do
       id = Volunteer.find_by_name('becky')[0]["id"]
       project_id = Project.find_by_name('habitat for humanity')[0]["id"]
-    expect(Volunteer.assign_to_project(id, project_id).to eq('hi'))
+      Volunteer.assign_to_project(id, project_id)
+    expect(Volunteer.all[0]['project_id']).to eq project_id
     end
   end
 
@@ -71,31 +73,12 @@ describe 'Project' do
     end
   end
 
-  # describe '#delete' do
-  #   it "delets project in database from id" do
-  #     id = Project.find_by_name('habitat for humanity')[0]["id"]
-  #   expect(Project.delete(id)).to eq('')
-  #   end
-  # end
-  #can'd get spec to pass because, I don't know what to tell it to expect- would love feed back on how to write this as a passing spec.
+  describe '#delete' do
+    it "delets project in database from id" do
+      id = Project.find_by_name('habitat for humanity')[0]["id"]
+    Project.delete(id)
+    expect(Project.find_by_id(id).any?).to eq(false)
+    end
+  end
 
 end
-
-# describe Assignment do
-#
-#   describe '#create' do
-#     it "adds a new connection between project and volunteer" do
-#       project_id =Project.find_by_name('habitat for humanity')[0]["id"]
-#       volunteer_id =Volunteer.find_by_name('becky')[0]["id"]
-#       expect(Assignment.create(project_id, volunteer_id)[0]['id']).to match(UUID_MATCHER)
-#     end
-#   end
-#
-#   describe '#find_by_volunteer' do
-#     it "finds the project name by volunteer id" do
-#       volunteer_id = Volunteer.find_by_name('becky')[0]["id"]
-#     expect(Assignment.find_by_volunteer(volunteer_id)[0]["id"]).to match(UUID_MATCHER)
-#     end
-#   end
-#
-# end

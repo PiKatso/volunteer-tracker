@@ -53,9 +53,12 @@ end
 
 get('/volunteer/:id') do
   @volunteer = Volunteer.find_by_id(params['id'])
-  @project = Project.find_by_id(@volunteer[0]['project_id'])
+  if @volunteer[0]['project_id'] != nil
+    @project = Project.find_by_id(@volunteer[0]['project_id'])
+  end
   erb(:volunteer)
 end
+
 
 post '/volunteer/assign' do
   data = params.fetch('volunteer')
@@ -63,6 +66,11 @@ post '/volunteer/assign' do
   volunteer_id = data['id']
   Volunteer.assign_volunteer(volunteer_id, project_id)
   redirect "/volunteer/#{volunteer_id}"
+end
+
+patch '/volunteer/update' do
+  
+
 end
 
 get('/volunteer/delete/:id') do

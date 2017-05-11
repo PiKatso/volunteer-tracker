@@ -105,7 +105,7 @@ describe 'Project' do
 
       description = "habitat for humanity, tasks"
       Project.update_description(id, description)
-    expect(Project.find_by_id(id)[0]['description']).to eq('habitat for humanity, tasks')
+      expect(Project.find_by_id(id)[0]['description']).to eq('habitat for humanity, tasks')
     end
   end
 

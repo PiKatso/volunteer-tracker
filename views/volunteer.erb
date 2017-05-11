@@ -15,9 +15,11 @@
   <br>
   <h1><%= @volunteer[0]['name'] %></h1>
   <br>
+
   <h5><%= @project[0]['name'] unless @project.nil? %></h5>
 
   <br>
+  <!-- assign volunteer -->
   <label for="volunteer_assign">Assign to Project</label>
   <form action="/volunteer/assign" class="form-group" method="post">
     <input type="hidden" name="volunteer[id]" value="<%= @volunteer[0]['id'] %>">
@@ -30,6 +32,16 @@
     <button type="submit" class="btn btn-success">Assign</button>
   </form>
   <br>
+
+  <!-- update volunteer -->
+  <form action="/volunteer/<%= @volunteer[0]['id'] %>/update" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="update-volunteer">Update Volunteer Name</label>
+    <input type="text submit" name="update-volunteer">
+  </form>
+  <br>
+
+  <!-- delete volunteer -->
   <form action="/volunteer/delete/<%= @volunteer[0]['id']%>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button class="btn btn-danger" type="submit">Delete Volunteer</button>

@@ -47,6 +47,10 @@ post('/add-volunteer') do
   erb(:index)
 end
 
+get('/volunteers') do
+  erb(:volunteers_all)
+end
+
 post('/volunteers') do
   erb(:volunteers_all)
 end
@@ -68,9 +72,11 @@ post '/volunteer/assign' do
   redirect "/volunteer/#{volunteer_id}"
 end
 
-patch '/volunteer/update' do
-  
-
+patch '/volunteer/:id/update' do
+  id = params['id']
+  volunteer_name = params.fetch("update-volunteer")
+  @volunteer = Volunteer.update_name(id, volunteer_name)
+  redirect '/volunteers'
 end
 
 get('/volunteer/delete/:id') do

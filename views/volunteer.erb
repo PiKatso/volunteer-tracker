@@ -22,7 +22,7 @@
   <!-- assign volunteer -->
   <label for="volunteer_assign">Assign to Project</label>
   <form action="/volunteer/assign" class="form-group" method="post">
-    <input type="hidden" name="volunteer[id]" value="<%= @volunteer[0]['id'] %>">
+    <input type="hidden" name="volunteer_id" value="<%= @volunteer[0]['id'] %>">
     <select class="form-control" name="volunteer[project_id]">
     <% Project.all.each do |project| %>
       <option value="<%= project['id'] %>"><%= project['name']%></option>
@@ -37,7 +37,10 @@
   <form action="/volunteer/<%= @volunteer[0]['id'] %>/update" method="post">
     <input type="hidden" name="_method" value="patch">
     <label for="update-volunteer">Update Volunteer Name</label>
-    <input type="text submit" name="update-volunteer">
+    <br>
+    <input type="text" name="update-volunteer">
+    <br>
+    <button class="btn btn-success" type="submit" name="update-button">Update Volunteer</button>
   </form>
   <br>
 

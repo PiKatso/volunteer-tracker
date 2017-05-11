@@ -52,8 +52,8 @@ post('/volunteers') do
 end
 
 get('/volunteer/:id') do
-  id = params['id']
-  @volunteer = Volunteer.find_by_id(id)
+  volunteer_id = params['id']
+  @volunteer = Volunteer.find_by_id(volunteer_id)
   erb(:volunteer)
 end
 

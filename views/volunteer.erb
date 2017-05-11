@@ -15,12 +15,15 @@
   <br>
   <h1><%= @volunteer[0]['name'] %></h1>
   <br>
-  <form action="/volunteers" method="post">
   <label for="volunteer_assign">Assign to Project</label>
-  <p>will be input bar and logic coming here</p>
-  <!-- do drop down, with options each Project. collect id to var project_id in volunteer table. -->
-  <br>
-  <button class="btn btn-success" type="submit" name="button">Assign Volunteer</button>
+  <form action="/volunteers" class="form-group" method="post">
+    <select class="form-control" name="<%= @volunteer[0]['id'] %>">
+    <% Project.all.each do |project| %>
+      <%= "<option value='#{project['id']}'>#{project['name']}</option>"%>
+    <% end %>
+    </select>
+    <br>
+    <button type="submit" class="btn btn-success">Assign</button>
   </form>
   <br>
   <form action="/volunteer/delete/<%= @volunteer[0]['id']%>" method="post">

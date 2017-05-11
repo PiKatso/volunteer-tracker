@@ -67,7 +67,7 @@ end
 post '/volunteer/assign' do
   data = params.fetch('volunteer')
   project_id = data['project_id']
-  volunteer_id = data['id']
+  volunteer_id = params.fetch('volunteer_id')
   Volunteer.assign_volunteer(volunteer_id, project_id)
   redirect "/volunteer/#{volunteer_id}"
 end

@@ -40,10 +40,11 @@
     <br>
     <input type="text" name="update-volunteer">
     <br>
+    <br>
     <button class="btn btn-success" type="submit" name="update-button">Update Volunteer</button>
   </form>
   <br>
-
+  <br>
   <!-- delete volunteer -->
   <form action="/volunteer/delete/<%= @volunteer[0]['id']%>" method="post">
     <input type="hidden" name="_method" value="delete">

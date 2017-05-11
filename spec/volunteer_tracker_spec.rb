@@ -49,7 +49,7 @@ describe 'Volunteer' do
       id = Volunteer.find_by_name('becky')[0]["id"]
       name = "kat"
       Volunteer.update_name(id, name)
-    expect(Volunteer.find_by_id(id)[0]['name']).to eq('kat') 
+    expect(Volunteer.find_by_id(id)[0]['name']).to eq('kat')
     end
   end
 
@@ -87,6 +87,25 @@ describe 'Project' do
       id = Project.find_by_name('habitat for humanity')[0]["id"]
     Project.delete(id)
     expect(Project.find_by_id(id).any?).to eq(false)
+    end
+  end
+
+  describe '#update_name' do
+    it "updates project name" do
+      id = Project.find_by_name('habitat for humanity')[0]["id"]
+      name = "HH"
+      Project.update_name(id, name)
+    expect(Project.find_by_id(id)[0]['name']).to eq('HH')
+    end
+  end
+
+  describe '#update_description' do
+    it "updates project name" do
+      id = Project.find_by_name('habitat for humanity')[0]["id"]
+
+      description = "habitat for humanity, tasks"
+      Project.update_description(id, description)
+    expect(Project.find_by_id(id)[0]['description']).to eq('habitat for humanity, tasks')
     end
   end
 

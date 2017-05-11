@@ -14,16 +14,15 @@ describe("the project path", {:type => :feature}) do
     expect(page).to have_content()
   end
 
-  # it("will click a project button at top and go to page that holds all projects") do
-  #   visit("/")
-  #   fill_in("project-name", :with => "Beach clean up")
-  #   fill_in("project-description", :with => "Do stuff")
-  #   click_button("Create Project")
-  #   visit('/projects')
-  #   click_link("Beach clean up")
-  #   expect(page).to have_content("All Projects: Beach clean up Do stuff")
-  #   click_button("Home")
-  # end
+  it("will click a project button at top and go to page that holds all projects") do
+    visit("/")
+    fill_in("project-name", :with => "Beach clean up")
+    fill_in("project-description", :with => "Do stuff")
+    click_button("Create Project")
+    click_button('Projects')
+    click_link("beach clean up")
+    expect(page).to have_content("beach clean up")
+  end
 
 end
 
@@ -37,14 +36,14 @@ describe("the volunteer path", {:type => :feature}) do
     expect(page).to have_content()
   end
 
-  # it("will click a project button at top and go to page that holds all projects") do
-  #   visit("/")
-  #   fill_in("first-name", :with => "Ben")
-  #   fill_in("last-name", :with => "Stiller")
-  #   click_button("Add Volunteer")
-  #   visit('/volunteers')
-  #   click_link("Ben Stiller")
-  #   expect(page).to have_content("Ben Stiller")
-  # end
+  it("will click a project button at top and go to page that holds all projects") do
+    visit("/")
+    fill_in("first-name", :with => "Ben")
+    fill_in("last-name", :with => "Stiller")
+    click_button("Add Volunteer")
+    click_button('Volunteers')
+    click_link("ben stiller")
+    expect(page).to have_content("ben stiller")
+  end
 
 end
